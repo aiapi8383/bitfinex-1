@@ -1,65 +1,13 @@
-package bitfinex
-
-import (
-	"fmt"
-	"io/ioutil"
-	"net/http"
-	"strings"
-	"time"
-)
-
-// Client holds details that allow communication with the Bitfinex API.
-type Client struct {
-	Host       string
-	HTTPClient *http.Client
-}
-
-// New returns a new Client.
-func New() *Client {
-	t := time.Second * 2
-
-	return &Client{
-		Host:       "https://api-pub.bitfinex.com",
-		HTTPClient: &http.Client{Timeout: t},
-	}
-}
-
-// Tickers returns the details for the given ticker symbols.
-//
-// See https://docs.bitfinex.com/reference#rest-public-tickers
-func (c *Client) Tickers(pairs []string) ([]Ticker, error) {
-	path := fmt.Sprintf("/v2/tickers?symbols=%s", strings.Join(pairs, ","))
-
-	body, err := c.get(path)
-	if err != nil {
-		return nil, err
-	}
-
-	tickers, err := ParseTickers(body)
-	if err != nil {
-		return nil, err
-	}
-
-	return tickers, nil
-}
-
-// get a response from a URL.
-//
-// This method will handle closing off the body.
-func (c Client) get(path string) ([]byte, error) {
-	url := c.Host + path
-
-	resp, err := c.HTTPClient.Get(url)
-	if err != nil {
-		return nil, err
-	}
-
-	defer resp.Body.Close()
-
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		return nil, err
-	}
-
-	return body, nil
-}
+Tank name;Bitcoin. 
+Project name;aiapi8383
+Name of the owner of the reservoir or project;Sayed Reza Mosavi 
+The task of generating Bitcoin, Solana, Ethereum, and Tether on the blockchain network and transferring the tokens generated on the blockchain network to the trust wallet, and each token is charged with $4 million. The amount of the tokens is visible everywhere, for example, $4 million, and the name of the wallet account is ;mosawiseyedreza092. 
+Location ;Iran Esfahan City Kashan Street Latohr Street2 kuche Shahid Reza Kalama postcode,8717843635.
+number mobile:+98 936 763 6601 .
+Email address:aiapi8383@gmail.com. 
+Url;https://bitbucket.org/aiapi8383/bitcoin/src/BTC/README.md?mode=edit&at=BTC .
+Username:aiapi8383
+username:mosawiseyedreza092 .
+username;Ethereum.org092
+username, Ethereum-28.
+url;https://bitbucket.org/aiapi8383/workspace/repository/import
